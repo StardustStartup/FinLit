@@ -26,8 +26,8 @@ Initialize repository:
     $ cd backend
     $ virtualenv -p python3 env
     $ source env/bin/activate
-    (venv)$ pip3 install -r requirements.txt
-    (venv)$ deactivate
+    (env)$ pip3 install -r requirements.txt
+    (env)$ deactivate
 
 Set up PostgreSQL/PostGIS:
 
@@ -46,7 +46,13 @@ Set up PostgreSQL/PostGIS:
 
 Make sure localhost IP address (not 127.0.0.1) is added to ALLOWED_HOSTS in settings.py for deployment.
 
-Set up Django for digital ocean!
+Set up Django for digital ocean: return to virtualenv
+
+    (env)$ ./manage.py createsuperuser
+    (env)$ ./manage.py collectstatic
+    (env)$ sudo ufw allow 8000
+    (env)$ ./manage.py runserver 0.0.0.0:8000
+
 
 
 End readme   
