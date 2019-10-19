@@ -18,10 +18,7 @@ This parser allows us to lint the `<template>` of `.vue` files. We can make mist
 $ npm install --save-dev eslint vue-eslint-parser
 ```
 
-- Requires Node.js 6.5.0 or later.
-- Requires ESLint 5.0.0 or later.
-- Requires `babel-eslint` 8.1.1 or later if you want it. (optional)
-- Requires `typescript-eslint-parser` 21.0.0 or later if you want it. (optional)
+- `vue-eslint-parser` requires ESLint 3.9.0 or later.
 
 ## 📖 Usage
 
@@ -51,19 +48,18 @@ For example:
     "parser": "vue-eslint-parser",
     "parserOptions": {
         "sourceType": "module",
-        "ecmaVersion": 2018,
+        "ecmaVersion": 2017,
         "ecmaFeatures": {
             "globalReturn": false,
             "impliedStrict": false,
-            "jsx": false
+            "jsx": false,
+            "experimentalObjectRestSpread": false
         }
     }
 }
 ```
 
-### parserOptions.parser
-
-You can use `parserOptions.parser` property to specify a custom parser to parse `<script>` tags.
+Also, you can use `parser` property to specify a custom parser to parse `<script>` tags.
 Other properties than parser would be given to the specified parser.
 For example:
 
@@ -87,8 +83,8 @@ For example:
 }
 ```
 
-If the `parserOptions.parser` is `false`, the `vue-eslint-parser` skips parsing `<script>` tags completely.
-This is useful for people who use the language ESLint community doesn't provide custom parser implementation.
+- If you use with `babel-eslint`, it has additional requirements. Use `eslint@>=4.14.0` and `babel-eslint@>=8.1.1`.
+- If you use `typescript-eslint-parser`, the location of original nodes can be wrong. Waiting for `typescript-eslint-parser` to support [parseResult.visitorKeys](https://eslint.org/docs/developer-guide/working-with-plugins#working-with-custom-parsers).
 
 ## 🎇 Usage for custom rules / plugins
 

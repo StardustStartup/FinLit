@@ -1,23 +1,12 @@
 # HackED
 
-## Backend System Dependencies
+Hackathon project for HackED at Boston University. Developing a preventative care web application to maximize
 
-Python:
+## Build Setup for Front End
 
-    python3
-    python3-dev
-    python3-pip
-    python3-virtualenv
+```bash
+# Install dependencies.
+npm install
 
-PostgreSQL:
-
-    postgresql
-    postgresql-contrib
-    python3-psycopg2
-  
-Geodjango/PostGIS:  
-  
-    binutils
-    libproj-dev
-    gdal-bin
-    postgis
+# Serve with hot reload.
+npm run serve
