@@ -4,7 +4,7 @@ from . import models
 class InstanceTypeSerializer(serializers.ModelSerializer):
     """ ... """
     class Meta:
-        models = models.InstanceType
+        model = models.InstanceType
         fields = ("id", "name",)
 
 class InstanceSerializer(serializers.ModelSerializer):
@@ -13,6 +13,6 @@ class InstanceSerializer(serializers.ModelSerializer):
         queryset=models.InstanceType.objects.all()
     )
     class Meta:
-        models = models.Instance
+        model = models.Instance
         fields = ("id", "month", "location", "type",)
         depth = 1
