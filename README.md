@@ -46,3 +46,7 @@ Set up PostgreSQL/PostGIS:
 
 Make sure localhost IP address (not 127.0.0.1) is added to ALLOWED_HOSTS in settings.py for deployment.
 
+Set up Django for digital ocean!
+
+
+End readme   

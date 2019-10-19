@@ -25,7 +25,15 @@ SECRET_KEY = 'gysp3!pwrso*u^fe3c0h7s%i%1-@d-y)dlpk1mn20lp9266)@f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+# ADD DOMAIN HERE
+# To respond to 'example.com' and any subdomains, start the domain with a dot
+ALLOWED_HOSTS = [
+    'localhost',
+    '167.99.156.209',
+    '167.99.144.1',
+    '.medout.tech'
+]
 
 
 # Application definition
