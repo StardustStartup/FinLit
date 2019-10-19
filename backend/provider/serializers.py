@@ -7,12 +7,18 @@ class InstanceTypeSerializer(serializers.ModelSerializer):
         model = models.InstanceType
         fields = ("id", "name",)
 
+class InstanceTimeSerializer(serializers.ModelSerializer):
+    id = serializers.Field(source='instance_type.id')
+    name = serializers.Field(source='instance_type.name')
+
+    class Meta:
+        model = models.InstanceTime
+        fields = ('id', 'name', 'month',)
+
 class InstanceSerializer(serializers.ModelSerializer):
     """ ... """
-    type = serializers.PrimaryKeyRelatedField(
-        queryset=models.InstanceType.objects.all()
-    )
+    occurences = InstanceTimeSerializer(source='instances', many=True)
+
     class Meta:
         model = models.Instance
-        fields = ("id", "month", "location", "type",)
-        depth = 1
+        fields = ("id", "location", "occurrences",)

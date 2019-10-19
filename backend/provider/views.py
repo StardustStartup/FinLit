@@ -2,12 +2,12 @@ from rest_framework.generics import ListCreateAPIView, ListAPIView, RetrieveUpda
 from .models import InstanceType, Instance
 from .serializers import InstanceTypeSerializer, InstanceSerializer
 
-class InstanceList(ListCreateAPIView):
+class PatientList(ListCreateAPIView):
     # add permissions later
     queryset = Instance.objects.all().order_by("id")
     serializer_class = InstanceSerializer
 
-class InstanceDetail(RetrieveUpdateDestroyAPIView):
+class PatientDetail(RetrieveUpdateDestroyAPIView):
     # add permissions later
     queryset = Instance.objects.all()
     serializer_class = InstanceSerializer
