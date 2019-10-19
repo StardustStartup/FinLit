@@ -10,38 +10,38 @@ import gmapsInit from './utils/gmaps';
 const locations = [
   {
     position: {
-      lat: 48.160910,
-      lng: 16.383330,
+      lat: 42.3497,
+      lng: -71.1068,
     },
   },
   {
     position: {
-      lat: 48.174270,
-      lng: 16.329620,
+      lat: 42.3499,
+      lng: -71.1080,
     },
   },
   {
     position: {
-      lat: 48.146140,
-      lng: 16.297030,
+      lat: 42.3480,
+      lng: -71.1100,
     },
   },
   {
     position: {
-      lat: 48.135830,
-      lng: 16.194460,
+      lat: 42.3460,
+      lng: -71.1060,
     },
   },
   {
     position: {
-      lat: 48.306091,
-      lng: 14.286440,
+      lat: 42.3490,
+      lng: -71.1068,
     },
   },
   {
     position: {
-      lat: 47.503040,
-      lng: 9.747070,
+      lat: 42.3460,
+      lng: -71.1050,
     },
   },
 ];
@@ -54,7 +54,7 @@ export default {
       const geocoder = new google.maps.Geocoder();
       const map = new google.maps.Map(this.$el);
 
-      geocoder.geocode({ address: `Austria` }, (results, status) => {
+      geocoder.geocode({ address: `Boston` }, (results, status) => {
         if (status !== `OK` || !results[0]) {
           throw new Error(status);
         }
