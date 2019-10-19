@@ -5,10 +5,10 @@ Hackathon project for HackED at Boston University. Developing a preventative car
 ## Build Setup for Front End
 
     bash
-# Install dependencies.
+### Install dependencies.
     npm install
 
-# Serve with hot reload.
+### Serve with hot reload.
     npm run serve
 
 ## Set Up Backend
