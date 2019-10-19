@@ -9,7 +9,7 @@ class InstanceTypeSerializer(serializers.ModelSerializer):
 
 class InstanceSerializer(serializers.ModelSerializer):
     """ ... """
-    category = serializers.PrimaryKeyRelatedField(
+    type = serializers.PrimaryKeyRelatedField(
         queryset=models.InstanceType.objects.all()
     )
     class Meta:
