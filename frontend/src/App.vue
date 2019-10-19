@@ -86,7 +86,6 @@ export default {
     }
   },
 };
-
 </script>
 
 <style>
@@ -97,9 +96,8 @@ body {
 }
 
 .App {
-  width: 25vw;
-  height: 25vh;
-  top: 20px;
+  width: 80vw;
+  height: 90vh;
 }
 
 
