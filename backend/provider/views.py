@@ -33,7 +33,7 @@ class IncidentList(ListCreateAPIView):
                 queryset.filter(type__name='treatment')
             elif int(in_month) > 0 and int(in_month) < 13:
                 int_month = int(in_month)
-                queryset.filter(type__name='treatment').filter(month='int_month')
+                queryset.filter(type__name='treatment').filter(month=int_month)
         return queryset
 
 class IncidentDetail(RetrieveUpdateDestroyAPIView):
