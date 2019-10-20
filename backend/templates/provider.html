@@ -103,15 +103,15 @@
         </div>
         <input type="hidden" name="gender">
         <ul class="dropdown-menu">
-          <li id="allergies">Allergies</li>
-          <li id="skin_cancer">Skin Cancer</li>
-					<li id="std">STD</li>
-					<li id="mental_health">Mental Health</li>
-					<li id="heart_attack">Heart Attack</li>
-					<li id="prostate_cancer">Prostate Cancer</li>
-					<li id="flu">Flu</li>
-					<li id="tetanus">Tetanus</li>
-					<li id="shingles">Shingles</li>
+          <li id="1">Allergies</li>
+          <li id="2">Skin Cancer</li>
+					<li id="3">STD</li>
+					<li id="4">Mental Health</li>
+					<li id="5">Heart Attack</li>
+					<li id="6">Prostate Cancer</li>
+					<li id="7">Flu</li>
+					<li id="8">Tetanus</li>
+					<li id="9">Shingles</li>
 
         </ul>
       </div>
@@ -179,6 +179,23 @@
 				console.log(treatment);
 				var month = $('.dropdown2-menu li').parents('.dropdown2').find('input').val();
 				console.log(month)
+				var request = new XMLHttpRequest();
+				var url = "http://167.99.156.209:8000/incidents/?format=json";
+				console.log("testing1");
+				request.open('GET', url, true);
+				request.responseType= 'json';
+				request.send();
+				console.log("testing2");
+				request.onload = function () {
+				var data10 = request.response;
+				console.log(data10[0]["location"]["coordinates"][0]);
+				console.log(data10[0]["location"]["coordinates"][1]);
+				for (var i = 0; i < data10.results.length; i++) {
+					if ((data[10][i]["type"] == treatment)  &&(data[10][i]["month"]== month) ) {
+						L.marker([data10[i]["location"]["coordinates"][0],data10[i]["location"]["coordinates"][1]]).addTo(map_b98283b339ab45c1a8f17a7bb203094b);
+					}
+				}
+			}
 
 			}
 
@@ -232,20 +249,5 @@
 											gradient: null
 											})
 									.addTo(map_b98283b339ab45c1a8f17a7bb203094b);
-											var request = new XMLHttpRequest();
-											var url = "http://167.99.156.209:8000/incidents/?format=json";
-											console.log("testing1");
-											request.open('GET', url, true);
-											request.responseType= 'json';
-											request.send();
-											console.log("testing2");
-											request.onload = function () {
-											var data10 = request.response;
-											console.log(data10[0]["location"]["coordinates"][0]);
-											console.log(data10[0]["location"]["coordinates"][1]);
-											for (var i = 0; i < data10.results.length; i++) {
-												L.marker([data10.results[i]["location"]["coordinates"][0],data10.results[i]["location"]["coordinates"][1]]).addTo(map_b98283b339ab45c1a8f17a7bb203094b);
-											}
-										}
 	</script>
 </html>
