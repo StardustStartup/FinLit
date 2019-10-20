@@ -12,6 +12,9 @@ class PatientDetail(RetrieveUpdateDestroyAPIView):
     queryset = Instance.objects.all()
     serializer_class = InstanceSerializer
 
+class InstanceList(ListAPIView):
+    queryset = 
+
 class InstanceTypeList(ListAPIView):
     queryset = InstanceType.objects.all().order_by("name")
     serializer_class = InstanceTypeSerializer
