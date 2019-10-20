@@ -36,8 +36,8 @@ urlpatterns = [
     path('', handleIndex),
     path('index.html', handleIndex),
     path('provider.html', handleProvider),
-    path('patient.html', handlePatient)
-    path('finlit.html', handleFinlit)
-    path('finlit-provider.html', handleFinlitProvider)
-    path('finlit-client.html', handleFinlitClient)
+    path('patient.html', handlePatient),
+    path('finlit.html', handleFinlit),
+    path('finlit-provider.html', handleFinlitProvider),
+    path('finlit-client.html', handleFinlitClient),
 ] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
