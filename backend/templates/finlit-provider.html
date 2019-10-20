@@ -178,7 +178,7 @@
 					{
 					}
 				]
-				for (var j=0; j<60; j++){
+				for (var j=0; j<55; j++){
 					var request = new XMLHttpRequest();
 					if (j == 0) {
 						var url = "http://api.reimaginebanking.com/atms?key=3b730ede3465ce76d4d004a02e9c1151";
@@ -191,7 +191,7 @@
 				request.send();
 				request.onload = function () {
 				var data10 = request.response;
-				for (var i = 0; i < 9; i++) {
+				for (var i = 0; i < 5; i++) {
 					person.push({id : data10.data[i]["_id"], lat: data10.data[i]["geocode"]["lat"], lng: data10.data[i]["geocode"]["lng"]});
 			}}
 				// for (var i = 0; i < 64; i=i+3) {
