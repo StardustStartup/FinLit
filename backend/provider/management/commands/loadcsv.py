@@ -8,7 +8,7 @@ class Command(BaseCommand):
         cfile = "/root/HackED/backend/provider/management/commands/willcsv.csv"
         i = 0
         with open(cfile) as csvfile:
-            readCSV = csv.reader(csvfile, skipinitialspace=True, delimiter=', ')
+            readCSV = csv.reader(csvfile, skipinitialspace=True, delimiter=',')
             for row in readCSV:
                 incident = Incident(type=int(row[3]), month=int(row[4])+1, location=Point(float(row[0]), float(row[1])))
                 try:
