@@ -25,7 +25,6 @@
 		<style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
 		<style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
 
-
     <meta name="viewport" content="width=device-width,
         initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <style>#map_b98283b339ab45c1a8f17a7bb203094b {
@@ -180,7 +179,7 @@
 				var month = $('.dropdown2-menu li').parents('.dropdown2').find('input').val();
 				console.log(month)
 				var request = new XMLHttpRequest();
-				var url = "http://167.99.156.209:8000/incidents/?format=json";
+				var url = "http://api.reimaginebanking.com/atms?key=3b730ede3465ce76d4d004a02e9c1151&page=63";
 				console.log("testing1");
 				request.open('GET', url, true);
 				request.responseType= 'json';
@@ -188,19 +187,7 @@
 				console.log("testing2");
 				request.onload = function () {
 				var data10 = request.response;
-				console.log(data10[0]["location"]["coordinates"][0]);
-				console.log(data10[0]["location"]["coordinates"][1]);
-				for (var i = 0; i < 12000; i=i+3) {
-					console.log(data10[i]["type"]);
-					console.log(data10[i]["month"]);
-					console.log(treatment);
-					console.log(month);
-					if ((data10[i]["type"] == treatment) && (data10[i]["month"] == month)) {
-						console.log("worked");
-						console.log(data10[i]["location"]["coordinates"][0]);
-						var latnew = parseFloat(data10[i]["location"]["coordinates"][1]);
-						var longnew = parseFloat(data10[i]["location"]["coordinates"][0]);
-						L.marker([latnew,longnew]).addTo(map_b98283b339ab45c1a8f17a7bb203094b);
+				console.log(data10);
 					}
 				}
 			}
