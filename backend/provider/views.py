@@ -2,6 +2,15 @@ from rest_framework.generics import ListCreateAPIView, ListAPIView, RetrieveUpda
 from .models import Patient, IncidentType, Incident, Event
 from .serializers import PatientSerializer, IncidentTypeSerializer, IncidentSerializer, EventSerializer
 from django.shortcuts import render
+from django.contrib.gis.db.models.functions import Distance
+from django.db.models import F
+from twilio.rest import TwilioRestClient
+from django.conf import settings
+
+def send_sms(to, message):
+    client = TwilioRestClient(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+    response = client.messages.create(body=message, to=to, from_=settings.TWILIO_PHONE_NO)
+    return response
 
 class IncidentTypeList(ListCreateAPIView):
     queryset = IncidentType.objects.all().order_by('name')
@@ -44,6 +53,15 @@ class EventList(ListCreateAPIView):
     serializer_class = EventSerializer
 
     def perform_create(self, serializer):
+        
+        client = Client(account_sid, auth_token)
+
+        p = self.request.location
+        new_queryset = Patient.objects.annotate(
+            distance=Distance('location', p)).filter(distance__lte=F('maxTravelDist')
+        )
+        for patient in new_queryset:
+            print(patient.)
         serializer.save()
 
 class EventDetail(RetrieveUpdateDestroyAPIView):
