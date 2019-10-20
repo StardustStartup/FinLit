@@ -50,8 +50,13 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'provider',
     'sms',
-    'phonenumber_field'
+    'phonenumber_field',
+    'django_twilio'
 ]
+
+TWILIO_ACCOUNT_SID = 'AC8edfd42d59add635e43405e2792aa0da'
+TWILIO_AUTH_TOKEN = '55676a147add6d4d94a0dfd7492432d7'
+TWILIO_PHONE_NO = '+12052738041'
 
 PHONENUMBER_DEFAULT_REGION = 'US'
 PHONENUMBER_DB_FORMAT = 'NATIONAL'
