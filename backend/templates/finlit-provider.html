@@ -1294,10 +1294,10 @@
 				//
 				// 	}
 			}
-
-			console.log(person);
-			for (var k = 1; k<626; k++) {
-				console.log(person[k]);
+			for (var key in person) {
+				if (person.hasOwnProperty(key)) {
+					console.log(key + "-->" + person[key]);
+				}
 			}}
 			</script>
 	</body>
