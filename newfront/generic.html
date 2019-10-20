@@ -115,7 +115,6 @@
         </ul>
       </div>
 
-  <span class="msg"></span>
 </div>
 <div class="rightContainer">
 <span class="choose">Select Month</span>
@@ -145,9 +144,8 @@
 
 </div>
 
-<span class="msg2"></span>
 </div>
-<button class="submit">Enter</button>
+<button class="submit" onclick = 'test()'>Enter</button>
 
 </div>
 
@@ -174,6 +172,16 @@
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/dropdown.js"></script>
 			<script src="assets/js/dropdown2.js"></script>
+			<script>
+			function test(){
+				var treatment = $('.dropdown-menu li').parents('.dropdown').find('input').val();
+				console.log(treatment);
+				var month = $('.dropdown2-menu li').parents('.dropdown2').find('input').val();
+				console.log(month)
+
+			}
+
+			</script>
 
 
 			location.reload();
