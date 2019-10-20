@@ -94,7 +94,7 @@
 			<div class="container">
           <input class='form-control' id="search_address2" placeholder='Enter your address' type='text' width='20px'/>
           <br />
-          <button class="submit" onclick = 'getLocation()'>Clinic Search</button>
+          <button class="submit" onclick = 'getCoord()'>Clinic Search</button>
 
 </div>
 
@@ -143,6 +143,35 @@
       new google.maps.places.Autocomplete(input2);
     }
     google.maps.event.addDomListener(window, 'load', initialize2);
+
+    function getCoord() {
+      var address = document.getElementById('search_address2');
+			var change = address.value.split(' ').join('+');
+			var mod = "https://maps.googleapis.com/maps/api/geocode/json?address="+change+"&key=AIzaSyAivJD4AnACirkXM3_SRsrPxYVXllcXHMM";
+			var request = new XMLHttpRequest();
+      request.open('GET', mod, true);
+      request.responseType= 'json';
+      request.send();
+      request.onload = function () {
+      var data4 = request.response;
+			var latitude = data4.results[0]["geometry"]["location"]["lat"];
+			var longitude = data4.results[0]["geometry"]["location"]["lng"]
+			console.log(latitude);
+			console.log(longitude);
+			var popup = L.popup()
+		    .setLatLng([latitude,longitude])
+				.setContent('<p>You are here!</p>')
+		    .openOn(map_b98283b339ab45c1a8f17a7bb203094b);
+			L.marker([latitude, longitude]).addTo(map_b98283b339ab45c1a8f17a7bb203094b);
+		}
+    // //    var i;
+    //     var latlngs = [];
+    //     for (i = 0; i < data4.route.length; i++) {
+    //       latlngs.push(data4.route[i]);
+    //       directions1.push(data4.directions[i])
+    //     }
+    // }}
+  }
     L.Map = L.Map.extend({
     openPopup: function(popup) {
         //        this.closePopup();  // just comment this
