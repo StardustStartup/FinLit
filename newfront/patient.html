@@ -20,8 +20,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
     <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
-
-		<style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAivJD4AnACirkXM3_SRsrPxYVXllcXHMM&libraries=places"></script>
+<style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
 		<style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
 
 
@@ -92,60 +92,9 @@
 					<div class="folium-map" id="map_b98283b339ab45c1a8f17a7bb203094b" ></div>
 <br/>
 			<div class="container">
-				<div class="leftContainer">
-    <span class="choose">Select Treatment</span>
-
-      <div class="dropdown">
-        <div class="select">
-          <span>Select</span>
-          <i class="fa fa-chevron-left"></i>
-        </div>
-        <input type="hidden" name="gender">
-        <ul class="dropdown-menu">
-          <li id="allergies">Allergies</li>
-          <li id="skinCancer">Skin Cancer</li>
-					<li id="std">STD</li>
-					<li id="mentalHealth">Mental Health</li>
-					<li id="heartAttack">Heart Attack</li>
-					<li id="prostateCancer">Prostate Cancer</li>
-					<li id="flu">Flu</li>
-					<li id="tetanus">Tetanus</li>
-					<li id="shingles">Shingles</li>
-
-        </ul>
-      </div>
-
-</div>
-<div class="rightContainer">
-<span class="choose">Select Month</span>
-
-<div class="dropdown2">
-	<div class="select">
-		<span>Select</span>
-		<i class="fa fa-chevron-left"></i>
-	</div>
-	<input type="hidden" name="gender">
-	<ul class="dropdown2-menu">
-		<li id="jan">January</li>
-		<li id="feb">February</li>
-		<li id="mar">March</li>
-		<li id="apr">April</li>
-		<li id="may">May</li>
-		<li id="jun">June</li>
-		<li id="jul">July</li>
-		<li id="aug">August</li>
-		<li id="sep">September</li>
-		<li id="oct">October</li>
-		<li id="nov">November</li>
-		<li id="dec">December</li>
-
-	</ul>
-
-
-</div>
-
-</div>
-<button class="submit" onclick = 'test()'>Enter</button>
+          <input class='form-control' id="search_address2" placeholder='Enter your address' type='text' width='20px'/>
+          <br />
+          <button class="submit" onclick = 'getLocation()'>Clinic Search</button>
 
 </div>
 
@@ -188,7 +137,12 @@
 	</body>
 
 	<script>
-
+    function initialize2() {
+      var input2 = document.getElementById('search_address2');
+      console.log(input2);
+      new google.maps.places.Autocomplete(input2);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize2);
     L.Map = L.Map.extend({
     openPopup: function(popup) {
         //        this.closePopup();  // just comment this
@@ -205,15 +159,19 @@
 
 
 			var map_b98283b339ab45c1a8f17a7bb203094b = L.map(
-					'map_b98283b339ab45c1a8f17a7bb203094b', {
-					center: [42.32, -71.08],
-					zoom: 13,
-					maxBounds: bounds,
-					layers: [],
-					worldCopyJump: false,
-					crs: L.CRS.EPSG3857,
-					zoomControl: true,
-					});
+					'map_b98283b339ab45c1a8f17a7bb203094b', {doubleClickZoom: false}).locate({setView: true, maxZoom: 16});
+
+
+
+          //{
+					//center: [42.32, -71.08],
+					//zoom: 13,
+					//maxBounds: bounds,
+					//layers: [],
+					//worldCopyJump: false,
+					//crs: L.CRS.EPSG3857,
+					//zoomControl: true,
+					//});
 
 
 
