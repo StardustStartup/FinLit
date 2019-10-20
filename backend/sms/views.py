@@ -9,6 +9,6 @@ def sms_response(request):
     incoming = request.GET.get('Body')
     resp = MessagingResponse()
 
-    msg = resp.message("boonk")
+    msg = resp.message("Here is the list of upcoming local clinics. Reply SUB to stay updated with local clinics. Reply <STOP> to stop receiving messages.")
 
     return HttpResponse(str(resp))
