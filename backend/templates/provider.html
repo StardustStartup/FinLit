@@ -191,7 +191,7 @@
 				console.log(data10[0]["location"]["coordinates"][0]);
 				console.log(data10[0]["location"]["coordinates"][1]);
 				for (var i = 0; i < 12000; i++) {
-					if ((data[10][i]["type"] == treatment)  &&(data[10][i]["month"]== month) ) {
+					if ((data10[i]["type"] == treatment)  &&(data10[i]["month"]== month) ) {
 						L.marker([data10[i]["location"]["coordinates"][0],data10[i]["location"]["coordinates"][1]]).addTo(map_b98283b339ab45c1a8f17a7bb203094b);
 					}
 				}
