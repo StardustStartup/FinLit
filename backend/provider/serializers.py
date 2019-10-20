@@ -31,7 +31,7 @@ class IncidentTypeSerializer(serializers.ModelSerializer):
 class IncidentSerializer(serializers.ModelSerializer):
     type = serializers.PrimaryKeyRelatedField(
         many=False,
-        queryset=models.IncidentType.all()
+        queryset=models.IncidentType.objects.all()
     )
     class Meta:
         model = models.Incident
@@ -45,7 +45,7 @@ class PatientSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     participants = serializers.PrimaryKeyRelatedField(
         many=True,
-        queryset=models.Patient.all(),
+        queryset=models.Patient.objects.all(),
         allow_null=True
     )
 
