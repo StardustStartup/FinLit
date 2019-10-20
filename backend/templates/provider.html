@@ -198,8 +198,8 @@
 					if ((data10[i]["type"] == treatment)) {
 						console.log("worked");
 						console.log(data10[i]["location"]["coordinates"][0]);
-						var latnew = parseFloat(data10[i]["location"]["coordinates"][0]);
-						var longnew = parseFloat(data10[i]["location"]["coordinates"][1]);
+						var latnew = parseFloat(data10[i]["location"]["coordinates"][1]);
+						var longnew = parseFloat(data10[i]["location"]["coordinates"][0]);
 						L.marker([latnew,longnew]).addTo(map_b98283b339ab45c1a8f17a7bb203094b);
 					}
 				}
