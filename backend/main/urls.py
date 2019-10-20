@@ -37,4 +37,4 @@ urlpatterns = [
     path('index.html', handleIndex),
     path('provider.html', handleProvider),
     path('patient.html', handlePatient)
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
