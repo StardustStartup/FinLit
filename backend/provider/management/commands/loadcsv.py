@@ -10,7 +10,8 @@ class Command(BaseCommand):
         with open(cfile) as csvfile:
             readCSV = csv.reader(csvfile, skipinitialspace=True, delimiter=',')
             for row in readCSV:
-                incident = Incident(type=int(row[3]), month=int(row[4])+1, location=Point(float(row[0]), float(row[1])))
+                incident_type = IncidentType.objects.only('id').get(id=int(row[3]))
+                incident = Incident(type=incident_type, month=int(row[4])+1, location=Point(float(row[0]), float(row[1])))
                 try:
                     incident.save()
                 except:
