@@ -28,11 +28,11 @@ class EventSerializer(serializers.ModelSerializer):
     )
     start_time = serializers.DateTimeField(
         default_timezone='America/New_York',
-        input_formats=['%m/%d/%Y %H:%M']
+        input_formats=['%m/%d/%Y-%H:%M']
     )
     end_time = serializers.DateTimeField(
         default_timezone='America/New_York',
-        input_formats=['%m/%d/%Y %H:%M'],
+        input_formats=['%m/%d/%Y-%H:%M'],
         allow_null=True
     )
 
