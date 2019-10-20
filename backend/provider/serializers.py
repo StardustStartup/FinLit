@@ -26,13 +26,6 @@ class EventSerializer(serializers.ModelSerializer):
         queryset=models.Patient.objects.all(),
         allow_null=True
     )
-    start_time = serializers.DateTimeField(
-        default_timezone='America/New_York'
-    )
-    end_time = serializers.DateTimeField(
-        default_timezone='America/New_York',
-        allow_null=True
-    )
 
     class Meta:
         model = models.Event

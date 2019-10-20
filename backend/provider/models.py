@@ -35,8 +35,7 @@ class Event(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=128, null=False, blank=False)
     address = models.CharField(max_length=128, null=False, blank=False)
-    start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
+    time = models.CharField(max_length=128, null=False, blank=False)
     details = models.CharField(max_length=128, null=True, blank=True)
     participants = models.ManyToManyField(Patient, related_name='events')
 
