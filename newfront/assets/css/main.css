@@ -4019,13 +4019,13 @@ span.choose {
 }
 .leftContainer {
 	float: left;
-	width: 50%;
+	width: 50vw;
 	text-align: middle;
 	padding-left: 500px;
 }
 .rightContainer {
 	float: right;
-	width: 50%;
+	width: 50vw;
 	padding-left: 100px;
 }
 
@@ -4041,7 +4041,6 @@ span.choose {
   font-size: 14px;
   color: #474747;
   height: 100%;
-  text-align: left
 }
 .dropdown .select {
     cursor: pointer;
@@ -4072,7 +4071,7 @@ span.choose {
     transform: rotate(-90deg)
 }
 .dropdown .dropdown-menu {
-    position: absolute;
+    position: relative;
     background-color: #fff;
     width: 100%;
     left: 0;
