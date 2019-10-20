@@ -219,13 +219,15 @@
 	}).addTo(map_b98283b339ab45c1a8f17a7bb203094b);
 	var request2 = new XMLHttpRequest();
 	var url = "http://167.99.156.209:8000/events/?format=json");
-	request2.open('GET', url, true);
-	request2.responseType= 'json';
-	request2.send();
-	request2.onload = function () {
-	var data10 = request2.response;
+	console.log("testing1");
+	request.open('GET', url, true);
+	request.responseType= 'json';
+	request.send();
+	console.log("testing2");
+	request.onload = function () {
+	var data10 = request.response;
 	console.log(data10.results);
-	console.log("testing");
+	console.log("testing3");
 }
 L.marker([42.33667667, -71.09383111]).addTo(map_b98283b339ab45c1a8f17a7bb203094b).bindPopup("<b>Flu Clinic</b><br />October 21, 12pm-4pm");
 L.marker([42.3336003, -71.0932276]).addTo(map_b98283b339ab45c1a8f17a7bb203094b).bindPopup("<b>Depression Screening</b><br />October 25, 9am-12pm");
