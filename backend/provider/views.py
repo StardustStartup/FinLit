@@ -52,18 +52,18 @@ class EventList(ListCreateAPIView):
     queryset = Event.objects.all().order_by('id')
     serializer_class = EventSerializer
 
-    def perform_create(self, serializer):
+    # def perform_create(self, serializer):
         
-        client = Client(account_sid, auth_token)
+    #     client = Client(account_sid, auth_token)
 
-        # p = self.request.location
-        p = serializer.fields.location
-        new_queryset = Patient.objects.annotate(
-            distance=Distance('location', p)).filter(distance__lte=F('maxTravelDist')
-        )
-        for patient in new_queryset:
-            print(patient.)
-        serializer.save()
+    #     # p = self.request.location
+    #     p = serializer.fields.location
+    #     new_queryset = Patient.objects.annotate(
+    #         distance=Distance('location', p)).filter(distance__lte=F('maxTravelDist')
+    #     )
+    #     for patient in new_queryset:
+    #         print(patient.)
+    #     serializer.save()
 
 class EventDetail(RetrieveUpdateDestroyAPIView):
     queryset = Event.objects.all()
