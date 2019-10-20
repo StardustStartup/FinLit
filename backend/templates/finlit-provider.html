@@ -185,14 +185,10 @@
 					}
 					else {
 						var url = "http://api.reimaginebanking.com/atms?key=3b730ede3465ce76d4d004a02e9c1151&page="+j.toString();
-						console.log(url);
 					}
-					console.log(j);
-				console.log("testing1");
 				request.open('GET', url, true);
 				request.responseType= 'json';
 				request.send();
-				console.log("testing2");
 				request.onload = function () {
 				var data10 = request.response;
 				for (var i = 0; i < 10; i++) {
@@ -204,7 +200,7 @@
 				//
 				//
 				// 	}
-			}}
+			}}console.log(person);
 
 			</script>
 	</body>
