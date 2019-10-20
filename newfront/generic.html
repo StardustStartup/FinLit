@@ -15,6 +15,7 @@
     <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
@@ -27,7 +28,7 @@
         initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <style>#map_b98283b339ab45c1a8f17a7bb203094b {
         position: relative;
-        width: 50.0%;
+        width: 100.0%;
         height: 70.0%;
         }
     </style>
@@ -62,7 +63,63 @@
 						</nav>
 					</header>
 					<div class="folium-map" id="map_b98283b339ab45c1a8f17a7bb203094b" ></div>
+				</br>
+			</br>
+			<div class="container">
+				<div class="leftContainer">
+    <span class="choose">Select Treatment</span>
 
+      <div class="dropdown">
+        <div class="select">
+          <span>Select</span>
+          <i class="fa fa-chevron-left"></i>
+        </div>
+        <input type="hidden" name="gender">
+        <ul class="dropdown-menu">
+          <li id="allergies">Allergies</li>
+          <li id="skinCancer">Skin Cancer</li>
+					<li id="std">STD</li>
+					<li id="mentalHealth">Mental Health</li>
+					<li id="heartAttack">Heart Attack</li>
+					<li id="prostateCancer">Prostate Cancer</li>
+					<li id="flu">Flu</li>
+					<li id="tetanus">Tetanus</li>
+					<li id="shingles">Shingles</li>
+
+        </ul>
+      </div>
+
+  <span class="msg"></span>
+</div>
+<div class="rightContainer">
+<span class="choose">Select Month</span>
+
+<div class="dropdown2">
+	<div class="select">
+		<span>Select</span>
+		<i class="fa fa-chevron-left"></i>
+	</div>
+	<input type="hidden" name="gender">
+	<ul class="dropdown2-menu">
+		<li id="jan">January</li>
+		<li id="feb">February</li>
+		<li id="mar">March</li>
+		<li id="apr">April</li>
+		<li id="may">May</li>
+		<li id="jun">June</li>
+		<li id="jul">July</li>
+		<li id="aug">August</li>
+		<li id="sep">September</li>
+		<li id="oct">October</li>
+		<li id="nov">November</li>
+		<li id="dec">December</li>
+
+	</ul>
+</div>
+
+<span class="msg2"></span>
+</div>
+</div>
 
 				<!-- Footer -->
 					<footer id="footer">
@@ -85,6 +142,10 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/dropdown.js"></script>
+			<script src="assets/js/dropdown2.js"></script>
+
+
 
 	</body>
 
