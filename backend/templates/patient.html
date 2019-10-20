@@ -229,7 +229,7 @@
 	var data10 = request.response;
 	console.log(data10.results.length);
 	for (var i = 0; i < data10.results.length; i++) {
-		L.marker([data10.results[i]["location"]["coordinates"][0],data10.results[i]["location"]["coordinates"][1]]).addTo(map_b98283b339ab45c1a8f17a7bb203094b).bindPopup("<b>"data10.results[i]["name"]"</b> clinic <br />"+data10.results[i]["time"]);
+		L.marker([data10.results[i]["location"]["coordinates"][0],data10.results[i]["location"]["coordinates"][1]]).addTo(map_b98283b339ab45c1a8f17a7bb203094b).bindPopup("test");
 	}
 	console.log("testing3");
 }
