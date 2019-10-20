@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Spectral by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static "assets/css/main.css" %}" />
+		<noscript><link rel="stylesheet" href="{% static "assets/css/noscript.css" %}" /></noscript>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAivJD4AnACirkXM3_SRsrPxYVXllcXHMM&libraries=places"></script>
+<style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+		<style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+
+
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>#map_b98283b339ab45c1a8f17a7bb203094b {
+        position: relative;
+        width: 100.0%;
+        height:60.0%;
+        }
+    </style>
+    <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
+
+
+
+<style>
+.submit {
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+	right: 50px;
+	max-width: 300px;
+	margin-left: 47vw;
+}
+.submit:hover {background-color: #3e8e41}
+
+.submit:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+</style>
+	</head>]
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="finlit.html">finlit</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="finlit.html">Home</a></li>
+											<li><a href="finlit-provider.html">Provider</a></li>
+											<li><a href="finlit-client.html">client</a></li>
+											<li><a href="#">Sign Up</a></li>
+											<li><a href="#">Log In</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+					<div class="folium-map" id="map_b98283b339ab45c1a8f17a7bb203094b" ></div>
+<br/>
+			<div class="container">
+          <input class='form-control' id="search_address2" placeholder='Enter your address' type='text' width='20px'/>
+          <br />
+          <button class="submit" onclick = 'getCoord()'>Clinic Search</button>
+
+</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+		<!-- Scripts -->
+			<script src="{% static "assets/js/jquery.min.js" %}"></script>
+			<script src="{% static "assets/js/jquery.scrollex.min.js" %}"></script>
+			<script src="{% static "assets/js/jquery.scrolly.min.js" %}"></script>
+			<script src="{% static "assets/js/browser.min.js" %}"></script>
+			<script src="{% static "assets/js/breakpoints.min.js" %}"></script>
+			<script src="{% static "assets/js/util.js" %}"></script>
+			<script src="{% static "assets/js/main.js" %}"></script>
+			<script src="{% static "assets/js/dropdown.js" %}"></script>
+			<script src="{% static "assets/js/dropdown2.js" %}"></script>
+			<script>
+			function test(){
+				var treatment = $('.dropdown-menu li').parents('.dropdown').find('input').val();
+				console.log(treatment);
+				var month = $('.dropdown2-menu li').parents('.dropdown2').find('input').val();
+				console.log(month)
+
+			}
+
+			</script>
+
+
+			location.reload();
+	</body>
+
+	<script>
+    function initialize2() {
+      var input2 = document.getElementById('search_address2');
+      console.log(input2);
+      new google.maps.places.Autocomplete(input2);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize2);
+
+    function getCoord() {
+      var address = document.getElementById('search_address2');
+			var change = address.value.split(' ').join('+');
+			var mod = "https://maps.googleapis.com/maps/api/geocode/json?address="+change+"&key=AIzaSyAivJD4AnACirkXM3_SRsrPxYVXllcXHMM";
+			var request = new XMLHttpRequest();
+      request.open('GET', mod, true);
+      request.responseType= 'json';
+      request.send();
+      request.onload = function () {
+      var data4 = request.response;
+			var latitude = data4.results[0]["geometry"]["location"]["lat"];
+			var longitude = data4.results[0]["geometry"]["location"]["lng"]
+			console.log(latitude);
+			console.log(longitude);
+			var popup = L.popup()
+		    .setLatLng([latitude,longitude])
+				.setContent('<p>You are here!</p>')
+		    .openOn(map_b98283b339ab45c1a8f17a7bb203094b);
+			L.marker([latitude, longitude]).addTo(map_b98283b339ab45c1a8f17a7bb203094b);
+		}
+    // //    var i;
+    //     var latlngs = [];
+    //     for (i = 0; i < data4.route.length; i++) {
+    //       latlngs.push(data4.route[i]);
+    //       directions1.push(data4.directions[i])
+    //     }
+    // }}
+  }
+    L.Map = L.Map.extend({
+    openPopup: function(popup) {
+        //        this.closePopup();  // just comment this
+        this._popup = popup;
+
+        return this.addLayer(popup).fire('popupopen', {
+            popup: this._popup
+        });
+    }
+});
+
+
+					var bounds = null;
+
+
+			var map_b98283b339ab45c1a8f17a7bb203094b = L.map(
+					'map_b98283b339ab45c1a8f17a7bb203094b', {doubleClickZoom: false}).locate({setView: true, maxZoom: 16});
+
+
+
+          //{
+					//center: [42.32, -71.08],
+					//zoom: 13,
+					//maxBounds: bounds,
+					//layers: [],
+					//worldCopyJump: false,
+					//crs: L.CRS.EPSG3857,
+					//zoomControl: true,
+					//});
+
+
+
+			var tile_layer_16067d87171143f0baccb2a22207790e = L.tileLayer(
+					'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+					{
+					"attribution": null,
+					"detectRetina": false,
+					"maxNativeZoom": 18,
+					"maxZoom": 18,
+					"minZoom": 0,
+					"noWrap": false,
+					"opacity": 1,
+					"subdomains": "abc",
+					"tms": false
+	}).addTo(map_b98283b339ab45c1a8f17a7bb203094b);
+	var request = new XMLHttpRequest();
+	var url = "http://167.99.156.209:8000/events/?format=json";
+	console.log("testing1");
+	request.open('GET', url, true);
+	request.responseType= 'json';
+	request.send();
+	console.log("testing2");
+	request.onload = function () {
+	var data10 = request.response;
+	console.log(data10.results.length);
+	for (var i = 0; i < data10.results.length; i++) {
+		L.marker([data10.results[i]["location"]["coordinates"][0],data10.results[i]["location"]["coordinates"][1]]).addTo(map_b98283b339ab45c1a8f17a7bb203094b).bindPopup("test");
+	}
+	console.log("testing3");
+}
+L.marker([42.33667667, -71.09383111]).addTo(map_b98283b339ab45c1a8f17a7bb203094b).bindPopup("<b>Flu Clinic</b><br />October 21, 12pm-4pm");
+L.marker([42.3336003, -71.0932276]).addTo(map_b98283b339ab45c1a8f17a7bb203094b).bindPopup("<b>Depression Screening</b><br />October 25, 9am-12pm");
+L.marker([42.3341, -71.0935]).addTo(map_b98283b339ab45c1a8f17a7bb203094b).bindPopup("<b>Breast Cancer Screening</b><br />October 28, 2pm-6pm");
+L.marker([42.34, -71.09]).addTo(map_b98283b339ab45c1a8f17a7bb203094b).bindPopup("<b>Tetanus Clinic</b><br />October 26, 8am-4pm");
+L.marker([42.330, -71.09]).addTo(map_b98283b339ab45c1a8f17a7bb203094b).bindPopup("<b>STD Testing</b><br />October 31, 2pm-4pm");
+
+
+									// var planes = [[42.35121058, -71.11575211, 1000], [42.35170571, -71.11989956, 1000], [42.35170571, -71.11989956, 1000], [42.35170571, -71.11989956, 1000], [42.35218621, -71.12120827, 1000], [42.35345537, -71.13218842, 1000], [42.35409679, -71.13615774, 1000], [42.35723474, -71.14703266, 1000], [42.36181486, -71.1440032, 1000], [42.36079138, -71.13924544, 1000], [42.36051579, -71.13452394, 1000], [42.36265413, -71.13023699, 1000], [42.36304871, -71.13134196, 1000], [42.36668653, -71.12529557, 1000], [42.36255937, -71.11789785, 1000], [42.36318364, -71.12978243, 1000], [42.35813437, -71.13304722, 1000], [42.36208594, -71.13039873, 1000], [42.357373, -71.1280986, 1000], [42.37987589, -71.03171809, 1000], [42.33436843, -71.0953077, 1000], [42.37146769, -71.04195159, 1000], [42.33445761, -71.088061, 1000], [42.30512949, -71.11461873, 1000]
+									//		];
+									//		for (var i = 0; i < planes.length; i++) {
+                  //      var popup = L.popup()
+                  //      .setLatLng([planes[i][0],planes[i][1]]);
+                  //      .setContent('<p>Hello world!<br />This is a nice popup.</p>');
+                  //      .openOn(map_b98283b339ab45c1a8f17a7bb203094b);
+									//		}
+									//		setTimeout(check, 1000);
+
+	</script>
+</html>

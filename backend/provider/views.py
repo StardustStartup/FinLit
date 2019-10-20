@@ -76,3 +76,12 @@ def handleProvider(request):
 
 def handleIndex(request):
     return render(request, 'index.html')
+
+def handleFinlitClient(request):
+    return render(request, 'finlit-client.html')
+
+def handleFinlitProvider(request):
+    return render(request, 'finlit-provider.html')
+
+def handleFinlit(request):
+    return render(request, 'finlit.html')
