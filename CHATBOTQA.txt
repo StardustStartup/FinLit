@@ -1,2 +1,48 @@
-<send code to start chatbot>
+<send code to start chatbot> recieve sms # of user as userid in database
 
+Respond with msg about upcoming local clinics, request to keep updated with local clinics <SUB>, <STOP> to stop
+"Here is the list of upcoming local clinics. Reply SUB to stay updated with local clinics. Reply <STOP> to stop receiving messages."
+
+Request <Y/N> provide info for streamline
+"Do you want to provide information for streamline? Respond Y or N."
+
+Recieve <Y/N> info for streamline
+IF <Y>:
+Request <NAME> or <BACK>
+"Enter your name. Reply BACK to go back one step."
+
+Recieve <NAME> or <BACK> as message contents, add to system or go back step
+
+Request <AGE> or <BACK>
+"Enter your age. Reply BACK to go back one step."
+
+Recieve <AGE> or <BACK> as message contents, add to system or go back step
+
+Request <ADDRESS> or <BACK>
+"Enter your current address. Reply BACK in order to go back one step."
+
+Recieve <ADDRESS> or <BACK> as message contents, add to system or go back step
+
+Request <TETANUS_DATE> or <NA> or <BACK>
+"Enter the date of your last Tetanus shot. Reply NA if not applicable. Reply BACK in order to go back one step."
+
+Recieve <TETANUS_DATE> or <BACK> as message contents, add to system or go back step
+
+Request <SHINGLES_DATE> or <NA> or <BACK>
+"Enter the date of your last Shingles shot. Reply NA if not applicable. Reply BACK in order to go back one step."
+
+Recieve <SHINGLES_DATE> or <BACK> as message contents, add to system or go back step
+
+Request <OTHER_MED_DETAILS> or <NA> or <BACK> , note send only 1 text
+"Enter any other applicable medical details. Reply NA if not applicable Reply BACK in order to go back one step."
+
+Recieve <OTHER_MED_DETAILS> or <BACK> as message contents, add to system or go back step
+
+Send completion message
+"You are fully registered."
+
+PUSH:::<EVENT_INFO>
+
+RECIEVE:::<EVENT_CODE> or <STOP>, add to system
+Send completion message
+"You are added to medOut's mobile clinic updates."
