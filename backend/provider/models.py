@@ -6,11 +6,17 @@ class IncidentType(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=128, null=False, blank=False)
 
+    def __str__(self):
+        return self.name
+
 class Incident(models.Model):
     id = models.AutoField(primary_key=True)
     type = models.ForeignKey(IncidentType, on_delete=models.CASCADE)
     month = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
     location = models.PointField(null=False, blank=False)
+
+    def __str__(self):
+        return str(self.id)
 
 class Patient(models.Model):
     id = models.AutoField(primary_key=True)
@@ -22,6 +28,9 @@ class Patient(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(100)]
     )
 
+    def __str__(self):
+        return self.name
+
 class Event(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=128, null=False, blank=False)
@@ -29,3 +38,6 @@ class Event(models.Model):
     time = models.DateTimeField()
     details = models.CharField(max_length=128, null=True, blank=True)
     participants = models.ManyToManyField(Patient, related_name='events')
+
+    def __str__(self):
+        return self.name
