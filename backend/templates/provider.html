@@ -241,8 +241,11 @@
 											console.log("testing2");
 											request.onload = function () {
 											var data10 = request.response;
-											console.log(data10.results);
-											console.log(data10.results[i]["location"]["coordinates"][0]);
+											console.log(data10);
+											console.log(data10.location);
+											console.log(data10.location[0]);
+											console.log(data10.location[0]["coordinates"]);
+											console.log(data10.location[i]["location"]["coordinates"][0]);
 											for (var i = 0; i < data10.results.length; i++) {
 												L.marker([data10.results[i]["location"]["coordinates"][0],data10.results[i]["location"]["coordinates"][1]]).addTo(map_b98283b339ab45c1a8f17a7bb203094b);
 											}
