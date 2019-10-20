@@ -187,7 +187,17 @@
 				var data10 = request.response;
 				for (var i = 0; i < 10; i++) {
 					person.push({id : data10.data[i]["_id"], lat: data10.data[i]["geocode"]["lat"], lng: data10.data[i]["geocode"]["lng"]});
-			}
+			}}
+			var request = new XMLHttpRequest();
+				var url = "http://api.reimaginebanking.com/atms?key=3b730ede3465ce76d4d004a02e9c1151&page=2";
+		request.open('GET', url, true);
+		request.responseType= 'json';
+		request.send();
+		request.onload = function () {
+		var data10 = request.response;
+		for (var i = 0; i < 10; i++) {
+			person.push({id : data10.data[i]["_id"], lat: data10.data[i]["geocode"]["lat"], lng: data10.data[i]["geocode"]["lng"]});
+	}
 
 				// for (var i = 0; i < 64; i=i+3) {
 				//
