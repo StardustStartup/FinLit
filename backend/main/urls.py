@@ -34,5 +34,5 @@ urlpatterns = [
     path('', handleIndex),
     path('index.html', handleIndex),
     path('provider.html', handleProvider),
-    path('patient', handlePatient)
+    path('patient.html', handlePatient)
 ]
