@@ -175,6 +175,7 @@
 			<script src="{% static "assets/js/dropdown2.js" %}"></script>
 			<script>
 			function test(){
+				markers.clearLayers();
 				var treatment = $('.dropdown-menu li').parents('.dropdown').find('input').val();
 				console.log(treatment);
 				var month = $('.dropdown2-menu li').parents('.dropdown2').find('input').val();
@@ -190,7 +191,7 @@
 				var data10 = request.response;
 				console.log(data10[0]["location"]["coordinates"][0]);
 				console.log(data10[0]["location"]["coordinates"][1]);
-				for (var i = 0; i < 12000; i++) {
+				for (var i = 0; i < 12000; i=i+3) {
 					console.log(data10[i]["type"]);
 					console.log(data10[i]["month"]);
 					console.log(treatment);
