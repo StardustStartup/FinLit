@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path
 from provider.views import IncidentTypeList, IncidentTypeDetail, IncidentList, IncidentDetail
 from provider.views import PatientList, PatientDetail, EventList, EventDetail
-from provider.views import handleIndex, handlePatient, handleProvider
+from provider.views import handleIndex, handlePatient, handleProvider, handleFinlit, handleFinlitProvider, handleFinlitClient
 from sms.views import sms_response
 
 urlpatterns = [
@@ -37,4 +37,7 @@ urlpatterns = [
     path('index.html', handleIndex),
     path('provider.html', handleProvider),
     path('patient.html', handlePatient)
+    path('finlit.html', handleFinlit)
+    path('finlit-provider.html', handleFinlitProvider)
+    path('finlit-client.html', handleFinlitClient)
 ] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
