@@ -29,10 +29,13 @@ class IncidentTypeSerializer(serializers.ModelSerializer):
         fields = ('id', 'name',)
 
 class IncidentSerializer(serializers.ModelSerializer):
-    type = serializers.PrimaryKeyRelatedField(queryset=models.IncidentType.all())
+    type = serializers.PrimaryKeyRelatedField(
+        many=False,
+        queryset=models.IncidentType.all()
+    )
     class Meta:
         model = models.Incident
-        fields = ('id', 'type', 'location',)
+        fields = ('id', 'type', 'month', 'location',)
 
 class PatientSerializer(serializers.ModelSerializer):
     class Meta:
@@ -40,4 +43,12 @@ class PatientSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'phone', 'location', 'maxTravelDist',)
 
 class EventSerializer(serializers.ModelSerializer):
-    pass
+    participants = serializers.PrimaryKeyRelatedField(
+        many=True,
+        queryset=models.Patient.all(),
+        allow_null=True
+    )
+
+    class Meta:
+        model = models.Event
+        fields = ('id', 'name', 'address', 'time', 'details', 'participants',)

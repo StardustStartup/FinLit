@@ -1,27 +1,6 @@
 from rest_framework.generics import ListCreateAPIView, ListAPIView, RetrieveUpdateDestroyAPIView, RetrieveAPIView
-from .models import Patient, IncidentType, Incident
-from .serializers import PatientSerializer, IncidentTypeSerializer, IncidentSerializer
-
-# class PatientList(ListCreateAPIView):
-#     # add permissions later
-#     queryset = Instance.objects.all().order_by("id")
-#     serializer_class = InstanceSerializer
-
-# class PatientDetail(RetrieveUpdateDestroyAPIView):
-#     # add permissions later
-#     queryset = Instance.objects.all()
-#     serializer_class = InstanceSerializer
-
-# class InstanceList(ListAPIView):
-#     queryset = 
-
-# class InstanceTypeList(ListAPIView):
-#     queryset = InstanceType.objects.all().order_by("name")
-#     serializer_class = InstanceTypeSerializer
-
-# class InstanceTypeDetail(RetrieveAPIView):
-#     queryset = InstanceType.objects.all()
-#     serializer_class = InstanceTypeSerializer
+from .models import Patient, IncidentType, Incident, Event
+from .serializers import PatientSerializer, IncidentTypeSerializer, IncidentSerializer, EventSerializer
 
 class IncidentTypeList(ListCreateAPIView):
     queryset = IncidentType.objects.all().order_by('name')
@@ -32,8 +11,20 @@ class IncidentTypeDetail(RetrieveUpdateDestroyAPIView):
     serializer_class = IncidentTypeSerializer
 
 class IncidentList(ListCreateAPIView):
-    queryset = Incident.objects.all().order_by('id')
+    # queryset = Incident.objects.all().order_by('id')
     serializer_class = IncidentSerializer
+
+    def get_queryset(self):
+        queryset = Incident.objects.all()
+        treatment = self.request.query_params.get('treatment', None)
+        in_month = self.request.query_params.get('month', None)
+        if treatment is not None and in_month is not None:
+            if int(in_month) == 0:
+                queryset.filter(type__name='treatment')
+            elif int(in_month) > 0 and int(in_month) < 13:
+                int_month = int(in_month)
+                queryset.filter(type__name='treatment').filter(month='int_month')
+        return queryset
 
 class IncidentDetail(RetrieveUpdateDestroyAPIView):
     queryset = Incident.objects.all()
@@ -48,7 +39,9 @@ class PatientDetail(RetrieveUpdateDestroyAPIView):
     serializer_class = PatientSerializer
 
 class EventList(ListCreateAPIView):
-    pass
+    queryset = Event.objects.all().order_by('id')
+    serializer_class = EventSerializer
 
 class EventDetail(RetrieveUpdateDestroyAPIView):
-    pass
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
