@@ -1,0 +1,38 @@
+<send code to start chatbot> recieve sms # of user as userid in database
+
+Respond with msg about upcoming local clinics, request to keep updated with local clinics <SUB>, <STOP> to stop
+
+Request <Y/N> provide info for streamline
+
+Recieve <Y/N> info for streamline
+IF <Y>:
+Request <NAME> or <BACK>
+
+Recieve <NAME> or <BACK> as message contents, add to system or go back step
+
+Request <AGE> or <BACK>
+
+Recieve <AGE> or <BACK> as message contents, add to system or go back step
+
+Request <ADDRESS> or <BACK>
+
+Recieve <ADDRESS> or <BACK> as message contents, add to system or go back step
+
+Request <TETANUS_DATE> or <NA> or <BACK>
+
+Recieve <TETANUS_DATE> or <BACK> as message contents, add to system or go back step
+
+Request <SHINGLES_DATE> or <NA> or <BACK>
+
+Recieve <SHINGLES_DATE> or <BACK> as message contents, add to system or go back step
+
+Request <OTHER_MED_DETAILS> or <NA> or <BACK> , note send only 1 text
+
+Recieve <OTHER_MED_DETAILS> or <BACK> as message contents, add to system or go back step
+
+Send completion message
+
+PUSH:::<EVENT_INFO>
+
+RECIEVE:::<EVENT_CODE> or <STOP>, add to system
+Send completion message
