@@ -174,16 +174,18 @@
 			<script src="{% static "assets/js/dropdown2.js" %}"></script>
 			<script>
 			function test(){
-				var treatment = $('.dropdown-menu li').parents('.dropdown').find('input').val();
-				console.log(treatment);
-				var month = $('.dropdown2-menu li').parents('.dropdown2').find('input').val();
-				console.log(month)
 				var person = [
 					{
 					}
 				]
 				var request = new XMLHttpRequest();
-				var url = "http://api.reimaginebanking.com/atms?key=3b730ede3465ce76d4d004a02e9c1151";
+				for (var j=0; j<63; j++){
+					if (j == 0) {
+						var url = "http://api.reimaginebanking.com/atms?key=3b730ede3465ce76d4d004a02e9c1151";
+					}
+					else {
+						"http://api.reimaginebanking.com/atms?key=3b730ede3465ce76d4d004a02e9c1151&page="+toString(j);
+					}
 				console.log("testing1");
 				request.open('GET', url, true);
 				request.responseType= 'json';
@@ -193,7 +195,7 @@
 				var data10 = request.response;
 				for (var i = 0; i < 10; i++) {
 					person.push({id : data10.data[i]["_id"], lat: data10.data[i]["geocode"]["lat"], lng: data10.data[i]["geocode"]["lng"]});
-			}
+			}}
 			console.log(person);
 				// for (var i = 0; i < 64; i=i+3) {
 				//
