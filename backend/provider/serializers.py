@@ -1,28 +1,6 @@
 from rest_framework import serializers
 from . import models
 
-# class InstanceTypeSerializer(serializers.ModelSerializer):
-#     """ ... """
-#     class Meta:
-#         model = models.InstanceType
-#         fields = ("id", "name",)
-
-# class InstanceTimeSerializer(serializers.ModelSerializer):
-#     id = serializers.Field(source='instance_type.id')
-#     name = serializers.Field(source='instance_type.name')
-
-#     class Meta:
-#         model = models.InstanceTime
-#         fields = ('id', 'name', 'month',)
-
-# class InstanceSerializer(serializers.ModelSerializer):
-#     """ ... """
-#     occurences = InstanceTimeSerializer(source='instances', many=True)
-
-#     class Meta:
-#         model = models.Instance
-#         fields = ("id", "location", "occurrences",)
-
 class IncidentTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.IncidentType
@@ -48,7 +26,16 @@ class EventSerializer(serializers.ModelSerializer):
         queryset=models.Patient.objects.all(),
         allow_null=True
     )
+    start_time = serializers.DateTimeField(
+        default_timezone='America/New_York',
+        input_formats=['%m/%d/%Y %H:%M']
+    )
+    end_time = serializers.DateTimeField(
+        default_timezone='America/New_York',
+        input_formats=['%m/%d/%Y %H:%M'],
+        allow_null=True
+    )
 
     class Meta:
         model = models.Event
-        fields = ('id', 'name', 'address', 'time', 'details', 'participants',)
+        fields = ('id', 'name', 'address', 'start_time', 'end_time', 'details', 'participants',)
