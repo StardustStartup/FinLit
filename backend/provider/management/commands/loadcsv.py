@@ -5,7 +5,7 @@ import csv
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        cfile = "willcsv.csv"
+        cfile = "/root/HackED/backend/provider/management/commands/willcsv.csv"
         i = 0
         with open(cfile) as csvfile:
             readCSV = csv.reader(csvfile, skipinitialspace=True, delimiter=', ')
