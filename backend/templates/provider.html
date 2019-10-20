@@ -190,12 +190,12 @@
 				var data10 = request.response;
 				console.log(data10[0]["location"]["coordinates"][0]);
 				console.log(data10[0]["location"]["coordinates"][1]);
-				for (var i = 0; i < 1000; i++) {
+				for (var i = 0; i < 12000; i++) {
 					console.log(data10[i]["type"]);
 					console.log(data10[i]["month"]);
 					console.log(treatment);
 					console.log(month);
-					if ((data10[i]["type"] == treatment)) {
+					if ((data10[i]["type"] == treatment) && (data10[i]["month"] == month)) {
 						console.log("worked");
 						console.log(data10[i]["location"]["coordinates"][0]);
 						var latnew = parseFloat(data10[i]["location"]["coordinates"][1]);
