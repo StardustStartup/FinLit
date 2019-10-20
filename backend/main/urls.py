@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from provider.views import IncidentTypeList, IncidentTypeDetail, IncidentList, IncidentDetail
 from provider.views import PatientList, PatientDetail, EventList, EventDetail
+from provider.views import handleIndex, handlePatient, handleProvider
 from sms.views import sms_response
 
 urlpatterns = [
@@ -29,5 +30,9 @@ urlpatterns = [
     path('itypes/<int:pk>/', IncidentTypeDetail.as_view()),
     path('events/', EventList.as_view()),
     path('events/<int:pk>/', EventDetail.as_view()),
-    path('sms/', sms_response)
+    path('sms/', sms_response),
+    path('/', handleIndex),
+    path('/index.html', handleIndex),
+    path('/provider.html', handleProvider),
+    path('/patient', handlePatient)
 ]

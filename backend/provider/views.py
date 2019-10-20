@@ -1,6 +1,7 @@
 from rest_framework.generics import ListCreateAPIView, ListAPIView, RetrieveUpdateDestroyAPIView, RetrieveAPIView
 from .models import Patient, IncidentType, Incident, Event
 from .serializers import PatientSerializer, IncidentTypeSerializer, IncidentSerializer, EventSerializer
+from django.shortcuts import render
 
 class IncidentTypeList(ListCreateAPIView):
     queryset = IncidentType.objects.all().order_by('name')
@@ -42,6 +43,18 @@ class EventList(ListCreateAPIView):
     queryset = Event.objects.all().order_by('id')
     serializer_class = EventSerializer
 
+    def perform_create(self, serializer):
+        serializer.save()
+
 class EventDetail(RetrieveUpdateDestroyAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
+
+def handlePatient(request):
+    return render(request, 'patient.html')
+
+def handleProvider(request):
+    return render(request, 'provider.html')
+
+def handleIndex(request):
+    return render(request, 'index.html')
