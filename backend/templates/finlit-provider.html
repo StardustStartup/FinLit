@@ -178,6 +178,10 @@
 				console.log(treatment);
 				var month = $('.dropdown2-menu li').parents('.dropdown2').find('input').val();
 				console.log(month)
+				var person = [
+					{
+					}
+				]
 				var request = new XMLHttpRequest();
 				var url = "http://api.reimaginebanking.com/atms?key=3b730ede3465ce76d4d004a02e9c1151";
 				console.log("testing1");
@@ -188,10 +192,9 @@
 				request.onload = function () {
 				var data10 = request.response;
 				for (var i = 0; i < 10; i++) {
-				console.log(data10.data[i]["_id"]);
-				console.log(data10.data[i]["geocode"]["lng"]);
-				console.log(data10.data[i]["geocode"]["lat"]);
+					person.push({id : data10.data[i]["_id"], lat: data10.data[i]["geocode"]["lat"], lng: data10.data[i]["geocode"]["lng"]});
 			}
+			console.log(person);
 				// for (var i = 0; i < 64; i=i+3) {
 				//
 				// }
