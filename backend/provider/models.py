@@ -37,10 +37,13 @@ from phonenumber_field.modelfields import PhoneNumberField
 #         return str(self.month)
 
 class IncidentType(models.Model):
-    pass
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=128, null=False, blank=False)
 
 class Incident(models.Model):
-    pass
+    id = models.AutoField(primary_key=True)
+    type = models.ForeignKey(IncidentType, on_delete=models.CASCADE)
+    location = models.PointField(null=False, blank=False)
 
 class Patient(models.Model):
     id = models.AutoField(primary_key=True)
