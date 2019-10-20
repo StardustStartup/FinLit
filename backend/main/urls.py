@@ -31,8 +31,8 @@ urlpatterns = [
     path('events/', EventList.as_view()),
     path('events/<int:pk>/', EventDetail.as_view()),
     path('sms/', sms_response),
-    path('/', handleIndex),
-    path('/index.html', handleIndex),
-    path('/provider.html', handleProvider),
-    path('/patient', handlePatient)
+    path('', handleIndex),
+    path('index.html', handleIndex),
+    path('provider.html', handleProvider),
+    path('patient', handlePatient)
 ]
