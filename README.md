@@ -1,4 +1,4 @@
-# FinLit
+# FinLit available at http://167.99.156.209:8000/finlit.html
 
 Hackathon project for HackHarvard 2019. Developed a web application to help banks maximize impact of financial literacy workshops based on location, and display avialable workshops in a user's area.
 
