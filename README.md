@@ -1,6 +1,10 @@
-# HackED
+# FinLit
 
-Hackathon project for HackED at Boston University. Developing a preventative care web application to maximize
+Hackathon project for HackHarvard 2019. Developed a web application to help banks maximize impact of financial literacy workshops based on location, and display avialable workshops in a user's area.
+
+- Best Financial Hack (Sponsored by Capital One)
+- Best Connecting the Dots Overall Theme Hack (Sponsored by Harvard)
+- Best Use of Google Cloud Platform 3rd Place (Sponsored by Google Cloud)
 
 ## Build Setup for Front End
 
